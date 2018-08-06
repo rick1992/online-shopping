@@ -1,7 +1,6 @@
-$(function ()
-{
-	//solving the active menu
-	
+$(function() {
+	// solving the active menu
+
 	switch (menu) {
 	case 'About Us':
 		$("#about").addClass('active');
@@ -10,12 +9,15 @@ $(function ()
 		$("#contact").addClass('active');
 		break;
 
+	case 'Todos los Productos':
+		$("#listProducts").addClass('active');
+		break;
+
 	default:
-		$("#home").addClass('active');
+		$("#listProducts").addClass('active');
 		break;
 	}
 
-}		
+}
 
 )
-

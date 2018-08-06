@@ -24,15 +24,15 @@ public class CategoryDAOImpl implements CategoryDAO {
 		categories.add(category);
 
 		category = new Category();
-		category.setId(1);
+		category.setId(2);
 		category.setName("Radio");
-		category.setDescription("Artefacto con escuchar musica");
+		category.setDescription("Artefacto con escuchar música");
 		category.setImageURL("CAT_2.png");
 
 		categories.add(category);
 
 		category = new Category();
-		category.setId(1);
+		category.setId(3);
 		category.setName("Computadora");
 		category.setDescription("Artefacto para ver porno");
 		category.setImageURL("CAT_3.png");
@@ -44,6 +44,19 @@ public class CategoryDAOImpl implements CategoryDAO {
 	public List<Category> list() {
 		// TODO Auto-generated method stub
 		return categories;
+	}
+
+	@Override
+	public Category get(int id) {
+		// enchanced for loop
+
+		for (Category category : categories) {
+			if (category.getId() == id)
+				return category;
+		}
+
+		return null;
+
 	}
 
 }

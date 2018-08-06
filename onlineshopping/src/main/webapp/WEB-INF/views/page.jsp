@@ -32,7 +32,7 @@
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
 <!-- Bootstrap Darkly Theme -->
-<link href="${css}/bootstrap-darkly-theme.css" rel="stylesheet">
+<%-- <link href="${css}/bootstrap-darkly-theme.css" rel="stylesheet"> --%>
 
 <!-- Custom styles for this template -->
 <link href="${css}/myapp.css" rel="stylesheet">
@@ -64,17 +64,20 @@
 				<%@include file="./contact.jsp"%>
 			</c:if>
 
+			<!-- Load only when user clicks contact -->
+			<c:if
+				test="${userClickAllProducts == true or userClickCategoryProducts == true}">
+				<%@include file="listProducts.jsp"%>
+			</c:if>
+
 		</div>
 
 		<!-- Footer -->
 		<%@include file="./shared/footer.jsp"%>
 
-
 		<!-- Bootstrap core JavaScript -->
 		<script src="${js}/jquery.js"></script>
 		<script src="${js}/bootstrap.bundle.min.js"></script>
-
-
 
 		<script src="${js}/myapp.js"></script>
 

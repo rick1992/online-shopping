@@ -15,7 +15,7 @@
 
 	<dependencies>
 
-<!-- 		Link backend part -->
+		<!-- Link backend part -->
 		<dependency>
 			<groupId>net.kzn</groupId>
 			<artifactId>shoppingbackend</artifactId>
