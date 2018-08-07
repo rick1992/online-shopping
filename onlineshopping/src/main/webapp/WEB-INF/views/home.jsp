@@ -5,7 +5,7 @@
 
 		<div class="col-lg-3">
 
-			<%@include file="./shared/sidebar.jsp" %>
+			<%@include file="./shared/sidebar.jsp"%>
 
 		</div>
 		<!-- /.col-lg-3 -->
