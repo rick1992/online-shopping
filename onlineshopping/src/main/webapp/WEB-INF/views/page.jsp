@@ -28,14 +28,22 @@
 	window.menu = "${title}";
 </script>
 
+<link
+	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"
+	rel="stylesheet">
+
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
-<!-- Bootstrap Darkly Theme -->
-<%-- <link href="${css}/bootstrap-darkly-theme.css" rel="stylesheet"> --%>
+<!-- Bootstrap Readable Theme -->
+<link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
+
+<!-- Bootstrap datatables -->
+<link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
 <link href="${css}/myapp.css" rel="stylesheet">
+
 
 </head>
 
@@ -78,6 +86,9 @@
 		<!-- Bootstrap core JavaScript -->
 		<script src="${js}/jquery.js"></script>
 		<script src="${js}/bootstrap.bundle.min.js"></script>
+		<!-- 		DataTable Plugin -->
+		<script src="${js}/jquery.dataTables.js"></script>
+		<script src="${js}/dataTables.bootstrap.js"></script>
 
 		<script src="${js}/myapp.js"></script>
 
