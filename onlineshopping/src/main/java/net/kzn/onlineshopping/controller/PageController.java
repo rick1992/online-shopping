@@ -7,13 +7,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import net.kzn.shoppingbackend.dao.CategoryDAO;
+import net.kzn.shoppingbackend.dao.ProductDAO;
 import net.kzn.shoppingbackend.dto.Category;
+import net.kzn.shoppingbackend.dto.Product;
 
 @Controller
 public class PageController {
 
 	@Autowired
 	private CategoryDAO categoryDAO;
+	
+	@Autowired
+	private ProductDAO productDAO;
 
 	@RequestMapping(value = { "/", "/home", "/index" })
 
@@ -82,29 +87,22 @@ public class PageController {
 		return mv;
 	}
 
-	// @RequestMapping(value="/test")
-	// public ModelAndView test(@RequestParam(value="greeting",required=false)String
-	// greeting) {
-	// if(greeting==null) {
-	// greeting="hola por defecto";
-	// }
-	//
-	// ModelAndView mv = new ModelAndView ("page");
-	// mv.addObject("greeting",greeting);
-	// return mv;
-	//
-	// }
-
-	// @RequestMapping(value="/test/{greeting}")
-	// public ModelAndView test(@PathVariable("greeting")String greeting) {
-	// if(greeting==null) {
-	// greeting="hola por defecto";
-	// }
-	//
-	// ModelAndView mv = new ModelAndView ("page");
-	// mv.addObject("greeting",greeting);
-	// return mv;
-	//
-	// }
+	//PARA VER UN SOLO PRODUCTO 
+	@RequestMapping(value = "/show/{id}/product")
+	public ModelAndView showSingleProduct(@PathVariable int id) {
+		
+		ModelAndView mv = new ModelAndView("page");
+		Product product = productDAO.get(id);
+		
+		//update the view count
+		product.setViews(product.getViews()+1);
+		productDAO.update(product);
+		
+		mv.addObject("title",product.getName());
+		mv.addObject("product",product);
+		mv.addObject("userClickShowProduct",true);
+			
+		return mv;
+	}
 
 }
