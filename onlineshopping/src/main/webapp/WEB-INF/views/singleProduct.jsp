@@ -41,13 +41,44 @@
 			</h4>
 			<hr />
 
-			<h6>Qty. Available: ${product.quantity}</h6>
-			<a href="${contextRoot}/cart/add/${product.id}/product"
-				class="btn btn-success"><span
-				class="glyphicon glyphicon-shopping-cart"> </span>Add to Cart</a>
-		    <a
-				href="${contextRoot}/cart/add/${product.id}/product"
-				class="btn btn-primary"><span
+
+
+
+			<c:choose>
+
+				<c:when test="${product.quantity < 1}">
+
+					<h6>
+						Qty. Available: <span style="color: red">Sin stock!</span>
+					</h6>
+				</c:when>
+				<c:otherwise>
+					<h6>Qty. Available: ${product.quantity}</h6>
+				</c:otherwise>
+
+			</c:choose>
+
+			<c:choose>
+
+				<c:when test="${product.quantity < 1}">
+
+					<a href="javascript.void(0)" class="btn btn-success disabled"><span
+						class="glyphicon glyphicon-shopping-cart "
+						style="text-decoration: line-through;"></span> Add to Cart</a>
+
+				</c:when>
+				<c:otherwise>
+
+					<a href="${contextRoot}/cart/add/${product.id}/product"
+						class="btn btn-success"><span
+						class="glyphicon glyphicon-shopping-cart"> </span>Add to Cart</a>
+
+				</c:otherwise>
+
+			</c:choose>
+
+
+			<a href="javascript:history.back()" class="btn btn-primary"><span
 				class="glyphicon  glyphicon-arrow-left"> </span>Back</a>
 			<hr />
 
